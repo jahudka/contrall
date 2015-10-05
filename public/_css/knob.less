@@ -1,0 +1,109 @@
+.knob {
+    .knob-track {
+        position: relative;
+        display: block;
+        width: 100%;
+        border: 20px solid #262626;
+        border-bottom-color: transparent;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        &:before {
+            display: block;
+            content: '';
+            width: 0;
+            height: 0;
+            padding-bottom: 100%;
+        }
+
+        .knob-button {
+            display: block;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background: #555555; /* Old browsers */
+            background: -moz-linear-gradient(top,  #555555 0%, #333333 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#555555), color-stop(100%,#333333)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #555555 0%,#333333 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #555555 0%,#333333 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #555555 0%,#333333 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #555555 0%,#333333 100%); /* W3C */
+            -webkit-box-shadow: 0 5px 7px 4px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 5px 7px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 7px 4px rgba(0, 0, 0, 0.3);
+
+            &:after {
+                display: block;
+                content: '';
+                position: absolute;
+                left: 7%;
+                top: 7%;
+                width: 86%;
+                height: 86%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                background: #555555; /* Old browsers */
+                background: -moz-linear-gradient(bottom,  #555555 0%, #333333 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,#555555), color-stop(100%,#333333)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(bottom,  #555555 0%,#333333 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(bottom,  #555555 0%,#333333 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(bottom,  #555555 0%,#333333 100%); /* IE10+ */
+                background: linear-gradient(to top,  #555555 0%,#333333 100%); /* W3C */
+            }
+        }
+
+        .knob-arrow {
+            position: absolute;
+            left: -3px;
+            top: -3px;
+            width: 100%;
+            height: 100%;
+            border: 3px dotted #1F1F1F;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            -webkit-transform-origin: center center;
+            -moz-transform-origin: center center;
+            -ms-transform-origin: center center;
+            -o-transform-origin: center center;
+            transform-origin: center center;
+            -webkit-transform: translateZ(0) rotate(-45deg);
+            transform: translateZ(0) rotate(-45deg);
+
+            &:after {
+                position: absolute;
+                display: block;
+                content: '';
+                right: 100%;
+                top: 50%;
+                width: 20px;
+                height: 0;
+                border-top: 1px solid #828282;
+            }
+        }
+    }
+
+    .knob-label, .knob-value {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+
+    .knob-value {
+        color: #8e8e8e;
+    }
+}

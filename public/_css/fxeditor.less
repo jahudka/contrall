@@ -1,0 +1,87 @@
+.fxeditor {
+    min-width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    .fxeditor-header {
+        -webkit-flex: 0 0 auto;
+        flex: 0 0 auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        padding: 0.5em;
+        border-bottom: 1px solid #2b2b2b;
+
+        .fxeditor-btnActive {
+            display: inline-block;
+            width: 40px;
+            height: 43px;
+            margin: 0 1em 0 0;
+            padding: 0;
+            border: none;
+            background: url('@{images}/btnOff-large.png') 0 0 no-repeat;
+
+            &.active {
+                background: url('@{images}/btnOn-large.png') 0 0 no-repeat;
+            }
+        }
+
+        .fxeditor-title {
+            margin-right: auto;
+            font-size: 24px;
+            line-height: 38px;
+            color: #828282;
+
+            .fxeditor-title-fx {
+                color: #fff;
+            }
+
+            .fxeditor-title-label {
+                font-size: 18px;
+
+                &:before, &:after {
+                    content: ' ';
+                }
+            }
+
+            .fxeditor-title-channel {
+                font-size: 24px;
+            }
+        }
+    }
+
+    .fxeditor-holder {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+    }
+
+    .fxeditor-editor {
+        min-width: 100%;
+        height: 100%;
+    }
+
+    .fxeditor-generic {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        -webkit-align-content: center;
+        align-content: center;
+
+        .knob {
+            -webkit-flex: 0 0 100px;
+            flex: 0 0 100px;
+            margin: 10px;
+        }
+    }
+
+    @import 'editors/eq';
+    @import 'editors/la';
+    @import 'editors/comp';
+}

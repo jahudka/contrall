@@ -1,0 +1,144 @@
+.vu {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    background: #262626;
+
+    .vu-label {
+        position: absolute;
+        display: -webkit-flex;
+        display: flex;
+        font-size: 8px;
+        line-height: 1;
+        color: #616161;
+
+        &:before, &:after {
+            display: block;
+            content: '';
+            -webkit-flex: 1 1 auto;
+            flex: 1 1 auto;
+        }
+
+        > span {
+            position: relative;
+            display: block;
+        }
+    }
+
+    .vu-channel {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        display: -webkit-flex;
+        display: flex;
+
+        > span {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .vu-peak {
+            -webkit-flex: 0 0 15px;
+            flex: 0 0 15px;
+            background: #ea4733;
+            opacity: 0;
+        }
+
+        .vu-segment {
+            -webkit-flex: 1 1 auto;
+            flex: 1 1 auto;
+            margin-top: auto;
+            background: #7cf393;
+            -webkit-transform-origin: left bottom;
+            -moz-transform-origin: left bottom;
+            -ms-transform-origin: left bottom;
+            -o-transform-origin: left bottom;
+            transform-origin: left bottom;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+    }
+
+    &.vu-vertical {
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        padding: 30px 0;
+
+        .vu-label {
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            left: 0;
+            width: 100%;
+
+            &:before, &:after {
+                margin: 0 2px;
+                border-top: 1px solid #616161;
+            }
+
+            > span {
+                top: -4px;
+            }
+        }
+
+        .vu-channel {
+            -webkit-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            margin: 0 2px;
+
+            .vu-peak {
+                margin-bottom: 5px;
+            }
+
+            .vu-segment {
+                -webkit-transform: scaleY(0);
+                -moz-transform: scaleY(0);
+                -ms-transform: scaleY(0);
+                -o-transform: scaleY(0);
+                transform: scaleY(0);
+            }
+        }
+    }
+
+    &.vu-horizontal {
+        -webkit-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+
+        .vu-label {
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            top: 0;
+            height: 100%;
+
+            &:before, &:after {
+                margin: 2px 0;
+                border-left: 1px solid #616161;
+            }
+
+            > span {
+                left: -4px;
+            }
+        }
+
+        .vu-channel {
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            margin: 2px 0;
+
+            .vu-peak {
+                -webkit-order: 2;
+                order: 2;
+                margin-left: 5px;
+            }
+
+            .vu-segment {
+                -webkit-order: 1;
+                order: 1;
+                -webkit-transform: scaleX(0);
+                -moz-transform: scaleX(0);
+                -ms-transform: scaleX(0);
+                -o-transform: scaleX(0);
+                transform: scaleX(0);
+            }
+        }
+    }
+}

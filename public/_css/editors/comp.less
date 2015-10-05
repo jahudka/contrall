@@ -1,0 +1,74 @@
+.fxeditor-comp {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    .fxeditor-comp-main {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-align-items: center;
+        align-items: center;
+        margin: 20px;
+        background: #303030;
+
+        .fxeditor-comp-graph-holder {
+            -webkit-flex: 0 0 30%;
+            flex: 0 0 30%;
+            margin: auto;
+            position: relative;
+
+            &:before {
+                display: block;
+                content: '';
+                width: 0;
+                height: 0;
+                padding-bottom: 100%;
+            }
+
+            .fxeditor-comp-graph {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .fxeditor-comp-main-params {
+            -webkit-flex: 0 0 55%;
+            flex: 0 0 55%;
+            margin: 0 auto 0 0;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+            .knob {
+                -webkit-flex: 0 0 25%;
+                flex: 0 0 25%;
+                margin: auto;
+                font-size: 22px;
+                line-height: 30px;
+
+                .knob-track {
+                    border-width: 30px;
+
+                    .knob-arrow:after {
+                        width: 30px;
+                        border-top-width: 2px;
+                        margin-top: -1px;
+                    }
+                }
+            }
+        }
+    }
+}

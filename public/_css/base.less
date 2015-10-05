@@ -1,0 +1,61 @@
+@images: './../_clip';
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #333333;
+    color: #fff;
+    font: 14px/17px 'Helvetica', 'Arial', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.btnPrev, .btnNext, .btnClose {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.btnPrev {
+    width: 37px;
+    height: 38px;
+    margin: 0 0 0 0.5em;
+    background: url('@{images}/btnPrev.png') 0 0 no-repeat;
+
+    &:active {
+        background-position: -37px 0;
+    }
+}
+
+.btnNext {
+    width: 38px;
+    height: 38px;
+    margin: 0 0.5em 0 0;
+    background: url('@{images}/btnNext.png') 0 0 no-repeat;
+
+    &:active {
+        background-position: -38px 0;
+    }
+}
+
+.btnClose {
+    width: 34px;
+    height: 38px;
+    margin: 0 0.5em;
+    background: url('@{images}/btnClose.png') 0 0 no-repeat;
+
+    &:active {
+        background-position: -34px 0;
+    }
+}

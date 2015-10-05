@@ -1,0 +1,45 @@
+#!/bin/bash
+
+cd "$( dirname "$0" )/../public"
+
+uglifyjs \
+    --source-map "./_js/contrall.min.map"\
+    --source-map-url "/_js/contrall.min.map"\
+    --screw-ie8\
+    --prefix relative\
+    --mangle\
+    --compress\
+    --output "./_js/contrall.min.js"\
+    --\
+    "./bower_components/jquery/dist/jquery.js"\
+    "./bower_components/underscore/underscore.js"\
+    "./bower_components/osc.js/dist/osc-browser.js"\
+    "./_js/Utils.js"\
+    "./_js/DataStore.js"\
+    "./_js/Controls/Fader.js"\
+    "./_js/Controls/VU.js"\
+    "./_js/Controls/Knob.js"\
+    "./_js/Controls/Select.js"\
+    "./_js/Controls/Toggle.js"\
+    "./_js/Controls/Channel.js"\
+    "./_js/Controls/Mixer.js"\
+    "./_js/Controls/AuxChannel.js"\
+    "./_js/Controls/AuxMixer.js"\
+    "./_js/Editors/Generic.js"\
+    "./_js/Editors/EQ.js"\
+    "./_js/Editors/EQs/ReaEQ.js"\
+    "./_js/Editors/EQs/Pro-Q2.js"\
+    "./_js/Editors/LA.js"\
+    "./_js/Editors/LAs/MJUCjr.js"\
+    "./_js/Editors/LAs/DC1A2.js"\
+    "./_js/Editors/LAs/GTS-39.js"\
+    "./_js/Editors/Comp.js"\
+    "./_js/Editors/Comps/Pro-C.js"\
+    "./_js/Editors/Comps/ReaComp.js"\
+    "./_js/Editors/Comps/DCAMFreeComp.js"\
+    "./_js/Editors/Comps/TDRFeedbackComp.js"\
+    "./_js/Controls/FxEditor.js"\
+    "./_js/Controls/Layer.js"\
+    "./_js/App.js"\
+    "./_js/main.js"
+

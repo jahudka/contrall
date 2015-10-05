@@ -1,0 +1,112 @@
+.panel-holder {
+    -webkit-flex: 0 0 240px;
+    flex: 0 0 240px;
+    position: relative;
+    overflow-x: auto;
+    border-top: 1px solid #2b2b2b;
+
+    .panel {
+        position: absolute;
+        left: 0;
+        top: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        min-width: 100%;
+        height: 100%;
+        padding: 20px;
+        background: #303030;
+        background-clip: content-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+        .knob {
+            width: 100px;
+            margin: 0 30px;
+        }
+
+        .select {
+            margin: 0 30px;
+
+            .select-label {
+                display: block;
+                max-width: 130px;
+                margin: 0 0 5px;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                -ms-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+            }
+
+            .select-value {
+                display: block;
+                min-width: 100px;
+                height: 26px;
+                margin: 0 auto;
+                padding: 4px;
+                background: #303030;
+                font-size: 22px;
+                line-height: 26px;
+                text-align: center;
+            }
+        }
+
+        .toggle {
+            margin: 0 30px;
+
+            .toggle-label {
+                display: block;
+                max-width: 130px;
+                margin: 0 0 5px;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                -ms-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+            }
+
+            .toggle-track {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &.panel-vertical {
+        -webkit-flex: 0 0 180px;
+        flex: 0 0 180px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-top: none;
+        border-left: 1px solid #2b2b2b;
+
+        .panel {
+            min-width: 0;
+            width: 100%;
+            min-height: 100%;
+            -webkit-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+
+            .knob, .select, .toggle {
+                margin: 20px auto;
+            }
+        }
+    }
+}
+
+.select-list.panel-select {
+    .select-item {
+        min-width: 100px;
+        padding: 4px;
+        font-size: 22px;
+        line-height: 26px;
+        text-align: center;
+    }
+}

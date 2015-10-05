@@ -1,0 +1,39 @@
+.fxeditor-la {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    .fxeditor-la-main {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        align-items: center;
+        margin: 20px;
+        background: #303030;
+
+        .knob {
+            -webkit-flex: 0 0 20%;
+            flex: 0 0 20%;
+            margin: 0 auto;
+            font-size: 24px;
+            line-height: 30px;
+
+            .knob-track {
+                border-width: 45px;
+
+                .knob-arrow:after {
+                    width: 45px;
+                    border-top-width: 3px;
+                    margin-top: -1px;
+                }
+            }
+        }
+    }
+}

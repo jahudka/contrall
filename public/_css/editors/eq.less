@@ -1,0 +1,154 @@
+.fxeditor-eq {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+
+    .fxeditor-eq-main {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+
+        .fxeditor-eq-graph-holder {
+            -webkit-flex: 1 1 auto;
+            flex: 1 1 auto;
+            position: relative;
+        }
+
+        .fxeditor-eq-graph-rulers {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            right: 20px;
+            bottom: 20px;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+        .fxeditor-eq-graph {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            right: 20px;
+            bottom: 20px;
+            z-index: 2;
+
+            .fxeditor-eq-btnNotch {
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                z-index: 2;
+                width: 0;
+                height: 0;
+                margin: 0;
+                padding: 0;
+                border: none;
+                background: none;
+
+                &:before {
+                    position: absolute;
+                    left: -20px;
+                    top: -20px;
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    border-radius: 20px;
+                    background: #333;
+                    color: #666;
+                    font: bold 25px/37px sans-serif;
+                    text-align: center;
+                    content: '+';
+                }
+            }
+
+            .fxeditor-eq-graph-point {
+                position: absolute;
+                left: 0;
+                top: 100%;
+                width: 0;
+                height: 0;
+
+                &:after {
+                    position: absolute;
+                    left: -14px;
+                    top: -14px;
+                    width: 28px;
+                    height: 28px;
+                    -webkit-border-radius: 14px;
+                    -moz-border-radius: 14px;
+                    border-radius: 14px;
+                    font-size: 14px;
+                    line-height: 28px;
+                    text-align: center;
+                    background: #fff;
+                    color: #000;
+                    content: attr(data-index);
+                }
+
+                &.inactive {
+                    display: none;
+                }
+            }
+        }
+
+        .fxeditor-eq-bands {
+            .fxeditor-eq-band {
+                position: relative;
+                min-width: 80px;
+                height: 110px;
+                margin: 0.5em;
+                padding: 0.5em;
+                background: #2b2b2b;
+
+                &:first-child {
+                    margin-left: 1em;
+                }
+
+                &:last-child {
+                    margin-right: 1em;
+                }
+
+                &.focus, &.selected {
+                    background: #262626;
+                }
+
+                .fxeditor-eq-band-name {
+                    display: block;
+                    margin: 0 0 0.8em;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                .fxeditor-eq-band-field {
+                    display: block;
+                    color: #828282;
+                    text-align: center;
+                }
+
+                .fxeditor-eq-band-btnActive {
+                    display: block;
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    width: 25px;
+                    height: 28px;
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                    background: url('@{images}/btnOff.png') 0 0 no-repeat;
+
+                    &.active {
+                        background: url('@{images}/btnOn.png') 0 0 no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}

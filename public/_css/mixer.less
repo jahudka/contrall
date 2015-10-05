@@ -1,0 +1,243 @@
+.mixer {
+    min-width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    .mixer-header {
+        -webkit-flex: 0 0 auto;
+        flex: 0 0 auto;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        padding: 0.5em;
+        border-bottom: 1px solid #2b2b2b;
+
+        .mixer-title {
+            margin-right: auto;
+            font-size: 32px;
+            line-height: 38px;
+            color: #828282;
+
+            .mixer-title-type {
+                font-size: 24px;
+
+                &:after {
+                    content: ' ';
+                }
+            }
+
+            .mixer-title-name {
+                color: #fff;
+            }
+        }
+
+        .mixer-btnReload {
+            display: inline-block;
+            width: 35px;
+            height: 38px;
+            margin: 0 0.5em 0 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background: url('@{images}/btnReload.png') 0 0 no-repeat;
+
+            &:active {
+                background-position: -35px 0;
+            }
+        }
+    }
+
+    .mixer-main {
+        position: relative;
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        overflow-x: auto;
+
+        .mixer-channels {
+            position: absolute;
+            left: 0;
+            top: 0;
+            min-width: 100%;
+            height: 100%;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        }
+
+        .channel {
+            -webkit-flex: 0 0 100px;
+            flex: 0 0 100px;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            background: #9fa7a7;
+            text-align: center;
+
+            &.selected {
+                background: #d3d6d6;
+            }
+
+            & + .channel {
+                border-left: 1px solid #131313;
+            }
+
+            .channel-header {
+                height: 50px;
+
+                .channel-number {
+                    display: block;
+                    height: 28px;
+                    font-size: 16px;
+                    line-height: 28px;
+                }
+
+                .channel-name {
+                    display: block;
+                    height: 22px;
+                    font-size: 14px;
+                    line-height: 22px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .channel-inserts {
+                background: #333;
+
+                .channel-insert {
+                    display: block;
+                    height: 22px;
+                    margin: 1px;
+                    padding: 3px;
+                    border: 1px solid #262626;
+                    font-size: 10px;
+                    line-height: 22px;
+                    background: #262626;
+                    color: #8e8e8e;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    &.channel-insert-empty {
+                        background: #303030;
+                        border-color: #303030;
+                    }
+
+                    &.channel-insert-bypassed {
+                        background: #333333;
+                        color: #83755c;
+                    }
+                }
+            }
+
+            .channel-tools {
+                display: -webkit-flex;
+                display: flex;
+                -webkit-flex-flow: row wrap;
+                flex-flow: row wrap;
+                height: 92px;
+
+                button {
+                    -webkit-flex: 1 1 32px;
+                    flex: 1 1 32px;
+                    margin: 6px;
+                    padding: 0;
+                    border: 1px solid #7c7e7e;
+                    background: #f6f6f6;
+                    color: #000;
+                    -webkit-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.3);
+                    -moz-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.3);
+                }
+
+                .channel-btnSends {
+                    font-size: 0.6em;
+
+                    &:before {
+                        content: 'SEND';
+                    }
+                }
+
+                .channel-btnReceives {
+                    font-size: 0.6em;
+
+                    &:before {
+                        content: 'RECV';
+                    }
+                }
+
+                .channel-btnSolo {
+                    &:before {
+                        content: 'S';
+                    }
+
+                    &.active {
+                        color: #fff;
+                        background: #f1c731;
+                        -webkit-box-shadow: none;
+                        -moz-box-shadow: none;
+                        box-shadow: none;
+                    }
+                }
+
+                .channel-btnMute {
+                    &:before {
+                        content: 'M';
+                    }
+
+                    &.active {
+                        color: #fff;
+                        background: #e93f33;
+                        -webkit-box-shadow: none;
+                        -moz-box-shadow: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .channel-pan {
+                position: relative;
+                height: 40px;
+
+                .fader {
+
+                }
+            }
+
+            .channel-fader {
+                -webkit-flex: 1 1 auto;
+                flex: 1 1 auto;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+                -webkit-justify-content: center;
+                justify-content: center;
+                padding: 5px 0;
+
+                .vu {
+                    width: 30px;
+                }
+
+                .fader {
+                    .fader-label {
+                        left: 50%;
+                        top: 10px;
+                        width: 38px;
+                        height: 10px;
+                        margin: 0 0 0 -19px;
+                        line-height: 10px;
+                        background: url('@{images}/dbLabels.png') 0 0 no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+.fader {
+    position: relative;
+    background: #262626;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    .fader-label {
+        position: absolute;
+        font-size: 8px;
+        color: #616161;
+        text-align: center;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .fader-track {
+        -webkit-flex: 1 1 100%;
+        flex: 1 1 100%;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .fader-handle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+
+            &:before {
+                position: absolute;
+                display: block;
+                content: '';
+            }
+        }
+    }
+
+    &.fader-horizontal {
+        height: 1px;
+        padding: 15px 10px;
+
+        .fader-label {
+            display: none;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            line-height: 14px;
+        }
+
+        &.fader-dragging .fader-label {
+            display: block;
+        }
+
+        .fader-track {
+            background: #333;
+
+            .fader-handle {
+                top: 50%;
+                left: 0;
+
+                &:before {
+                    left: -10px;
+                    top: -11px;
+                    width: 19px;
+                    height: 26px;
+                    background: url('@{images}/fader-small.png') 0 0 no-repeat;
+                }
+            }
+        }
+    }
+
+    &.fader-vertical {
+        width: 1px;
+        padding: 50px 24px 30px;
+
+        .fader-label {
+            top: 0;
+            left: 0;
+            width: 100%;
+            line-height: 28px;
+        }
+
+        .fader-track {
+            background: #000;
+
+            .fader-handle {
+                bottom: 0;
+                left: 50%;
+
+                &:before {
+                    left: -14px;
+                    top: -28px;
+                    width: 27px;
+                    height: 61px;
+                    background: url('@{images}/fader.png') 0 0 no-repeat;
+                }
+            }
+        }
+    }
+}
