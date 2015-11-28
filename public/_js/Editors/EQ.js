@@ -246,11 +246,18 @@
             var freq = null,
                 gain = null,
                 active,
-                selected = this._.selectedBand === band;
+                selected = this._.selectedBand === band,
+                updQueue = [];
+
+            if (band.updateTmr) {
+                window.clearTimeout(band.updateTmr);
+                band.updateTmr = null;
+
+            }
 
             if (band.index.frequency !== null && params[band.index.frequency] !== undefined) {
                 if (params[band.index.frequency].description !== undefined) {
-                    band.elms.frequency.text(params[band.index.frequency].description);
+                    updQueue.push(band.elms.frequency.text.bind(band.elms.frequency, params[band.index.frequency].description));
 
                     if (selected) {
                         this._.bandControls.frequency.setDescription(params[band.index.frequency].description);
@@ -270,7 +277,7 @@
 
             if (band.index.gain !== null && params[band.index.gain] !== undefined) {
                 if (params[band.index.gain].description !== undefined) {
-                    band.elms.gain.text(params[band.index.gain].description);
+                    updQueue.push(band.elms.gain.text.bind(band.elms.gain, params[band.index.gain].description));
 
                     if (selected) {
                         this._.bandControls.gain.setDescription(params[band.index.gain].description);
@@ -290,7 +297,7 @@
 
             if (band.index.q !== null && params[band.index.q] !== undefined) {
                 if (params[band.index.q].description !== undefined) {
-                    band.elms.q.text(params[band.index.q].description);
+                    updQueue.push(band.elms.q.text.bind(band.elms.q, params[band.index.q].description));
 
                     if (selected) {
                         this._.bandControls.q.setDescription(params[band.index.q].description);
@@ -310,7 +317,7 @@
 
             if (band.index.type !== null && params[band.index.type] !== undefined) {
                 if (params[band.index.type].description !== undefined) {
-                    band.elms.type.text(params[band.index.type].description);
+                    updQueue.push(band.elms.type.text.bind(band.elms.type, params[band.index.type].description));
 
                 }
 
@@ -337,6 +344,18 @@
                 gain === null && (gain = band.params.gain);
                 freq === null && (freq = band.params.frequency);
                 this._updatePoint(band, freq, gain);
+
+            }
+
+            if (updQueue.length) {
+                band.updateTmr = window.setTimeout(this._runUpdateQueue.bind(this, updQueue), 100);
+
+            }
+        },
+
+        _runUpdateQueue: function (queue) {
+            for (var i = 0; i < queue.length; i++) {
+                queue[i]();
 
             }
         },
@@ -666,6 +685,7 @@
         _createBand: function (index) {
             var band = {
                 dragging: false,
+                updateTmr: null,
                 elms: {
                     point: $('<span></span>'),
                     panel: $('<div></div>')
